@@ -7,36 +7,38 @@
   font-family: "Poppins", sans-serif;
 }
 
-body{
+body {
     height: 100vh;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-.card{
+
+.card {
     width: 700px;
     height: 500px;
-    position: absolute;
-    margin: auto;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     -webkit-perspective: 1200px;
     perspective: 1200px;
     transition: 1s;
 }
-.card:hover{
+.card:hover {
     transform: rotate(-3deg);
 }
-.card:hover .outside{
+.card:hover .outside {
     transform: rotateY(-130deg);
 }
-.outside, .inside{
+.outside, .inside {
     height: 100%;
     width: 50%;
     position: absolute;
     left: 50.1%;
 }
-.inside{
+.inside {
     background-image: url(background.svg);
     line-height: 3;
     padding: 3%;
@@ -47,17 +49,15 @@ body{
     align-items: center;
     left: 50%;
 }
-.outside{
+.outside {
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
     z-index: 1;
     transform-origin: left;
     transition: 2s;
     cursor: pointer;
-
 }
-.front, .back{
-
+.front, .back {
     height: 100%;
     width: 100%;
     position: absolute;
@@ -65,30 +65,141 @@ body{
     backface-visibility: hidden;
     transform: rotateX(0deg);
 }
-.front{
+.front {
     background: url(background.svg);
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    justify-content: center;
+    align-items: center;
 }
-
-h1{
+h1 {
     text-align: center;
     margin: 2% 0;
     font-weight: 500;
     font-size: 1.6rem;
 }
-img.txt{
+img.txt {
     height: 60px;
 }
-img.studentTeacher{
-    height: 350px;
-    margin-top: 10%;
+img.studentTeacher {
+    height: 300px;
+    margin-top: 5%;
 }
-.back{
+.back {
     transform: rotateY(180deg);
     background: linear-gradient(90deg, #ffd885 0%, #fcc348 100%);
 }
-.inside p{
+.inside p {
     font-size: 1.3rem;
+}
+
+/* Media Queries for Responsive Centering and Scaling */
+
+@media screen and (max-width: 1200px) {
+    .card {
+        width: 550px;
+        height: 500px;
+    }
+    img.studentTeacher {
+        height: 300px;
+    }
+    .inside p {
+        font-size: 1.1rem;
+        line-height: 50px;
+    }
+    h1 {
+        font-size: 1.3rem;
+        line-height: 70px;
+    }
+    img.txt {
+        height: 50px;
+    }
+    
+.front {
+    padding: 20px;
+}
+}
+
+@media screen and (max-width: 990px) {
+    .card {
+        width: 500px;
+        height: 470px;
+    }
+    img.studentTeacher {
+        height: 250px;
+    }
+    .inside p {
+        font-size: 1rem;
+        line-height: 30px;
+    }
+    h1 {
+        font-size: 1.2rem;
+        line-height: 50px;
+    }
+    img.txt {
+        height: 45px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .card {
+        width: 500px;
+        height: 400px;
+    }
+    img.studentTeacher {
+        height: 200px;
+    }
+    .inside p {
+        font-size: 1rem;
+        line-height: 30px;
+    }
+    h1 {
+        font-size: 1rem;
+        line-height: 40px;
+    }
+    .card:hover {
+        transform: rotate(0deg);
+    }
+    img.txt {
+        height: 40px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .card {
+        width: 450px;
+        height: 350px;
+    }
+    img.studentTeacher {
+        height: 150px;
+    }
+    h1 {
+        font-size: 1rem;
+    }
+    .inside p {
+        font-size: 1rem;
+    }
+    img.txt {
+        height: 35px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .card {
+        width: 350px;
+        height: 350px;
+        margin: 0;
+    }
+    img.studentTeacher {
+        height: 120px;
+    }
+    h1 {
+        font-size: 0.9rem;
+    }
+    .inside p {
+        font-size: 0.9rem;
+    }
+    img.txt {
+        height: 30px;
+    }
 }
